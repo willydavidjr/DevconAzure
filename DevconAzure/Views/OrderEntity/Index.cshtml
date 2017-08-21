@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DevconAzure.Models.OrderEntity>
+
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary"})
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th hidden="hidden">
+            @Html.DisplayNameFor(model => model.RowKey)
+        </th>
+        <th hidden="hidden">
+            @Html.DisplayNameFor(model => model.PartitionKey)
+        </th>
+        <th hidden="hidden">
+            @Html.DisplayNameFor(model => model.OrderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPath)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th hidden="hidden">
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </th>
+            <td hidden="hidden">
+                @Html.DisplayFor(modelItem => item.RowKey)
+            </td>
+            <td hidden="hidden">
+                @Html.DisplayFor(modelItem => item.PartitionKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderPath)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Create", new {  id=item.OrderId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrderId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrderId })
+            </td>
+        </tr>
+    }
+
+</table>
